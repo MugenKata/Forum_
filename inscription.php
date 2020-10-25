@@ -25,9 +25,9 @@ if(isset($_POST['pseudo']) AND isset($_POST['email']) AND isset($_POST['mdp'])  
 <!DOCTYPE html>
 <head>
     <meta charset='utf-8' />
-    <title>Mon super forum !</title>
+    <title>Mon forum !</title>
     
-    <meta name="author" content="Thibault Neveu"> 
+    
     <link rel="stylesheet" type="text/css" href="css/general.css" />
     <link rel="shortcut icon" href="images/favicon.ico" />
     <link href='http://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
@@ -47,8 +47,11 @@ if(isset($_POST['pseudo']) AND isset($_POST['email']) AND isset($_POST['mdp'])  
                         if(isset($erreur)){
                             echo $erreur;
                         }
+                        
                         ?>
+                    <p class="box-register">Déjà inscrit? <a href="connexion.php">Connectez-vous ici</a></p>                    
                     </p>
+
                 </form> 
                 
             </div>
