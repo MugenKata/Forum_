@@ -4,7 +4,7 @@ travail à faire sur le forum : (marquer "FAIT" à côté des tâches une fois f
 
 - intégrer SHA1 sur les mots de passe
 
-- intégrer le bootstrap CSS sur le site
+- intégrer le bootstrap CSS sur le site 
 
 - probablement un espace admin (jsp s'il l'a demandé Delprat)
 
