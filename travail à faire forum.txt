@@ -1,0 +1,13 @@
+travail à faire sur le forum : (marquer "FAIT" à côté des tâches une fois finies pour bien répartir le travail svp) 
+
+- intégrer SHA1 sur les mots de passe
+
+- intégrer le bootstrap CSS sur le site
+
+- probablement un espace admin (jsp s'il l'a demandé Delprat)
+
+- recentrer les noms par rapport aux menus (exemple jeux touche le bas de sa box, le centrer dans la box)
+
+- faites déjà ça dans l'ordre que je vous ai donné c'est du plus important au moins important
+
+- bon courage à vous moi je dors jusqu'à 16h si jms vous avez des questions mentionner moi sur le discord j'aurais les notifs sur mon tel
