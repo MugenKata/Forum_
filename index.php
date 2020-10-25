@@ -36,7 +36,7 @@ else {
     <link href='http://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
 <head>
 <body>
- <h1>Bienvenue sur mon super forum !</h1>
+ <h1>Bienvenue sur le Forum prefere de ton forum preferes !</h1>
     
             <div id="Cforum">
                 <?php 
