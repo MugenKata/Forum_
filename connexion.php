@@ -21,15 +21,16 @@ if(isset($_POST['pseudo']) AND isset($_POST['mdp'])){
 <!DOCTYPE html>
 <head>
     <meta charset='utf-8' />
-    <title>Mon forum !</title>
+    <title>Mon super forum !</title>
     
-    
+    <meta name="author" content="Thibault Neveu"> 
     <link rel="stylesheet" type="text/css" href="css/general.css" />
     <link rel="shortcut icon" href="images/favicon.ico" />
     <link href='http://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
 <head>
 <body>
  <h1>Connexion</h1>
+ <center>
     
             <div id="Cforum">
                 <form method="post" action="connexion.php">
@@ -37,15 +38,16 @@ if(isset($_POST['pseudo']) AND isset($_POST['mdp'])){
                         <input name="pseudo" type="text" placeholder="Pseudo..." required /><br>
                         <input name="mdp" type="password" placeholder="Mot de passe..." required /><br>
                         <input type="submit" value="Connexion !" />
+                        <p class="box-register">Vous êtes nouveau ici? <a href="inscription.php">S'inscrire</a></p>
                         <?php 
                         if(isset($erreur)){
                             echo $erreur;
                         }
                         ?>
-                        <p class="box-register">Vous êtes nouveau ici? <a href="inscription.php">S'inscrire</a></p>
                     </p>
                 </form> 
                 
             </div>
+</center>
 </body>
 </html>

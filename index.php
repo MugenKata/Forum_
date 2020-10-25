@@ -29,14 +29,15 @@ else {
 <!DOCTYPE html>
 <head>
     <meta charset='utf-8' />
-    <title>Mon forum !</title>
+    <title>Mon super forum !</title>
     
+    <meta name="author" content="Thibault Neveu"> 
     <link rel="stylesheet" type="text/css" href="css/general.css" />
     <link rel="shortcut icon" href="images/favicon.ico" />
     <link href='http://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
 <head>
 <body>
- <h1>Bienvenue sur le Forum prefere de ton forum preferes !</h1>
+ <h1>Bienvenue sur le Forum préfere de ton forum préfere !</h1>
     
             <div id="Cforum">
                 <?php 
@@ -56,6 +57,7 @@ else {
                     ?>
                      <div class="categories">
                          <a href="index.php?sujet=<?php echo $reponse['name'] ?>"><h1><?php echo $reponse['name'] ?></h1></a>
+                         <p class="box-register"> <a href="index.php">Retour</a></p>
                     </div>
                     <?php
                 }
@@ -96,6 +98,7 @@ else {
                         <textarea name="sujet" placeholder="Votre message..." ></textarea>
                         <input type="hidden" name="name" value="<?php echo $_GET['sujet']; ?>" />
                         <input type="submit" value="Ajouter à la conversation" />
+                        <p class="box-register"> <a href="index.php?categorie=jeux">Retour</a></p>
                         <?php 
                         if(isset($erreur)){
                             echo $erreur;
