@@ -26,7 +26,7 @@ if(isset($_POST['name']) AND isset($_POST['sujet'])){
     <meta charset='utf-8' />
     <title>Mon super forum !</title>
     
-    <meta name="author" content="Thibault Neveu"> 
+   
     <link rel="stylesheet" type="text/css" href="css/general.css" />
     <link rel="shortcut icon" href="images/favicon.ico" />
     <link href='http://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
