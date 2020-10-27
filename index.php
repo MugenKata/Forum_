@@ -1,6 +1,7 @@
 <?php session_start();
 include_once 'function/function.php';
 include_once 'function/addPost.class.php';
+
 $bdd = bdd();
 
 if(!isset($_SESSION['id'])){
@@ -9,20 +10,23 @@ if(!isset($_SESSION['id'])){
 }
 else {
     
-    if(isset($_POST['name']) AND isset($_POST['sujet'])){
     
-    $addPost = new addPost($_POST['name'],$_POST['sujet']);
-    $verif = $addPost->verif();
-    if($verif == "ok"){
+        if(isset($_POST['name']) AND isset($_POST['sujet'])){
+    
+        $addPost = new addPost($_POST['name'],$_POST['sujet']);
+        $verif = $addPost->verif();
+         if($verif == "ok"){
         if($addPost->insert()){
             
         }
     }
     else {/*Si on a une erreur*/
         $erreur = $verif;
-    }
+        }
     
-}
+    }
+   
+    
     
     
     ?>
@@ -110,10 +114,11 @@ else {
                 else { /*Si on est sur la page normal*/
                     
                        
-                
+                    
                         $requete = $bdd->query('SELECT * FROM categories');
                         while($reponse = $requete->fetch()){
                         ?>
+                        <a href="index.php">Ajouter un sujet</a>
                             <div class="categories">
                                 <a href="index.php?categorie=<?php echo $reponse['name']; ?>"><?php echo $reponse['name']; ?></a>
                               </div>

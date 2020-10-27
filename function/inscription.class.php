@@ -15,11 +15,12 @@ class inscription{
         
         $pseudo = htmlspecialchars($pseudo);
         $email = htmlspecialchars($email);
+       
         
-        $this->pseudo = $pseudo; 
-        $this->email = $email;
-        $this->mdp = $mdp;
-        $this->mdp2 = $mdp2;
+        $_POST['pseudo'] = $pseudo; 
+        $_POST['email'] = $email;
+        $_POST['mdp'] = $mdp;
+        $_POST['mdp2'] = $mdp2;
         $this->bdd = bdd();
         
         
@@ -27,14 +28,14 @@ class inscription{
     
     public function verif(){
         
-        if(strlen($this->pseudo) >= 5 AND strlen($this->pseudo) < 20 ){ /*Si le pseudo est bon*/
+        if(strlen( $_POST['pseudo']) >= 5 AND strlen( $_POST['pseudo']) < 21 ){ /*Si le pseudo est bon*/
           
            $syntaxe = '#^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,6}$#'; 
-           if(preg_match($syntaxe,$this->email)){ /*email bon*/
+           if(preg_match($syntaxe, $_POST['email'])){ /*email bon*/
                
-               if(strlen($this->mdp) >= 5 AND strlen($this->mdp) < 20 ){ /*Si le mot de passe à le bon format*/
-                  
-                   if($this->mdp == $this->mdp2){/*Deux mots de passe bon*/
+               if(strlen( $_POST['mdp']) >= 5 AND strlen( $_POST['mdp']) < 21 ){ /*Si le mot de passe à le bon format*/
+               
+                   if( $_POST['mdp'] ==  $_POST['mdp2']){/*Deux mots de passe bon*/
                        return 'ok';
                    }
                    else { /*Mot de passe !=*/
@@ -55,7 +56,7 @@ class inscription{
            }
         }
         else { /*Pseudo mauvais*/
-            $erreur = 'Le pseudu doit contenir entre 5 et 20 caractères';
+            $erreur = 'Le pseudo doit contenir entre 5 et 20 caractères';
             return $erreur;
         }
         
@@ -63,24 +64,24 @@ class inscription{
     
     
     public function enregistrement(){
-        
+        if(isset($_POST['mdp'])){
         $requete = $this->bdd->prepare('INSERT INTO membres(pseudo,email,mdp) VALUES(:pseudo,:email,:mdp)');
         $requete->execute(array(
-            'pseudo'=>  $this->pseudo,
-            'email' => $this->email,
-            'mdp' => $this->mdp 
+            'pseudo'=>   $_POST['pseudo'],
+            'email' =>  $_POST['email'],
+            'mdp' => sha1($_POST['mdp']) 
         ));
-        
+    }
         return 1; 
        
     }
     
     public function session(){
         $requete = $this->bdd->prepare('SELECT id FROM membres WHERE pseudo = :pseudo ');
-        $requete->execute(array('pseudo'=>  $this->pseudo));
+        $requete->execute(array('pseudo'=>   $_POST['pseudo']));
         $requete = $requete->fetch();
         $_SESSION['id'] = $requete['id'];
-        $_SESSION['pseudo'] = $this->pseudo;
+        $_SESSION['pseudo'] = $_POST['pseudo'];
         
         return 1;
     }

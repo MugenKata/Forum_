@@ -1,4 +1,3 @@
-
 Drop database if exists forumn1;
 Create database forumn1;
 
@@ -15,7 +14,7 @@ use forumn1;
 
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(20)
+  `name` varchar(20),
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -37,7 +36,7 @@ CREATE TABLE `membres` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `pseudo` varchar(21),
   `email` varchar(100),
-  `mdp` varchar(21)
+  `mdp` varchar(21),
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -59,7 +58,7 @@ CREATE TABLE `postsujet` (
   `propri` int(11),
   `contenu` text,
   `date` datetime,
-  `sujet` varchar(60)
+  `sujet` varchar(60),
    PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -79,7 +78,7 @@ INSERT INTO `postsujet` (`id`, `propri`, `contenu`, `date`, `sujet`) VALUES
 CREATE TABLE `sujet` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(60),
-  `categorie` varchar(20)
+  `categorie` varchar(20),
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

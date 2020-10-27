@@ -2,7 +2,7 @@ travail à faire sur le forum : (marquer "FAIT" à côté des tâches une fois f
 
 - renommer le title pcq << Mon super forum >> c'est éclaté  
 
-- intégrer SHA1 sur les mots de passe
+- intégrer addcatégorie a la page index les bgs les plus rebeux des rebeuxdeter
 
 - intégrer le bootstrap CSS sur le site 
 
