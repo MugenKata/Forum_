@@ -102,7 +102,7 @@ else {
                         <textarea name="sujet" placeholder="Votre message..." ></textarea>
                         <input type="hidden" name="name" value="<?php echo $_GET['sujet']; ?>" />
                         <input type="submit" value="Ajouter à la conversation" />
-                        <p class="box-register"> <a href="index.php?categorie=jeux">Retour</a></p>
+                        <p class="box-register"> <a href="index.php?categorie=<?php echo $_GET['categorie'];?>">Retour</a></p>
                         <?php 
                         if(isset($erreur)){
                             echo $erreur;
@@ -118,11 +118,21 @@ else {
                         $requete = $bdd->query('SELECT * FROM categories');
                         while($reponse = $requete->fetch()){
                         ?>
-                        <a href="index.php">Ajouter un sujet</a>
+                       <!-- <a href="index.php">Ajouter un sujet</a>-->
                             <div class="categories">
                                 <a href="index.php?categorie=<?php echo $reponse['name']; ?>"><?php echo $reponse['name']; ?></a>
                               </div>
-                
+                              <form method="post" action="addCategorie.php">
+                    <p>
+                        <br><input type="text" name="name" placeholder="Nom du sujet..." required/><br>
+                        <input type="submit" value="Ajouter le sujet" />
+                        <?php 
+                        if(isset($erreur)){
+                            echo $erreur;
+                        }
+                        ?>
+                    </p>
+                </form>
                     <?php 
                     }
                     
