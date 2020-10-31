@@ -35,13 +35,14 @@ else {
     <meta charset='utf-8' />
     <title>Mon super forum !</title>
     
-    
+   
     <link rel="stylesheet" type="text/css" href="css/general.css" />
     <link rel="shortcut icon" href="images/favicon.ico" />
     <link href='http://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
 <head>
+
 <body>
- <h1>Bienvenue sur le Forum préfere de ton forum préfere !</h1>
+ <h1>Bienvenue sur le Forum préfere de ton forum préfere un peu merdique on va pas se mytho !</h1>
     
             <div id="Cforum">
                 <?php 
@@ -145,9 +146,10 @@ else {
                 
             </div>
 </body>
-</html>
-    <?php
+<?php
 }
 ?>
+</html>
+ 
 
     
