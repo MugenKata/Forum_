@@ -1,6 +1,6 @@
 <?php session_start();
-include_once 'function/function.php';
-include_once 'function/connexion.class.php';
+include_once '../function/function.php';
+include_once '../function/connexion.class.php';
 $bdd = bdd();
 if(isset($_POST['pseudo']) AND isset($_POST['mdp'])){
     
@@ -8,7 +8,7 @@ if(isset($_POST['pseudo']) AND isset($_POST['mdp'])){
     $verif = $connexion->verif();
     if($verif =="ok"){
      if($connexion->session()){
-         header('Location: index.php');
+         header('Location: indexadmin.php');
       }
     }
     else {
@@ -21,15 +21,14 @@ if(isset($_POST['pseudo']) AND isset($_POST['mdp'])){
 <!DOCTYPE html>
 <head>
     <meta charset='utf-8' />
-    <title>Forum four-tout</title>
+    <title>Mon super forum !</title>
     
    
-    <link rel="stylesheet" type="text/css" href="css/general.css" />
+    <link rel="stylesheet" type="text/css" href="../css/general.css" />
     <link rel="shortcut icon" href="images/favicon.ico" />
     <link href='http://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
 <head>
 <body>
-<h1>Bienvenue sur le Forum four-tout</h1>
  <h1>Connexion</h1>
  <center>
     
@@ -39,7 +38,7 @@ if(isset($_POST['pseudo']) AND isset($_POST['mdp'])){
                         <input name="pseudo" type="text" placeholder="Pseudo..." required /><br>
                         <input name="mdp" type="password" placeholder="Mot de passe..." required /><br>
                         <input type="submit" value="Connexion !" />
-                        <p class="box-register">Vous êtes nouveau ici? <a href="inscription.php">S'inscrire</a></p>
+                      <!--  <p class="box-register">Vous êtes nouveau ici? <a href="inscription.php">S'inscrire</a></p-->
                         <?php 
                         if(isset($erreur)){
                             echo $erreur;

@@ -24,7 +24,10 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`id`, `name`) VALUES
 (1, 'jeux'),
-(2, 'sneakers');
+(2, 'sneakers'),
+(3, 'Manga'),
+(4, 'Sport'),
+(5, 'Histoire');
 
 -- --------------------------------------------------------
 
