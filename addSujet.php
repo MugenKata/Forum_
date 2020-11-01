@@ -24,10 +24,10 @@ if(isset($_POST['name']) AND isset($_POST['sujet'])){
 <!DOCTYPE html>
 <head>
     <meta charset='utf-8' />
-    <title>Mon super forum !</title>
+    <title>Forum four-tout</title>
     
    
-    <link rel="stylesheet" type="text/css" href="css/general.css" />
+    <link rel="stylesheet" type="text/css" href="css/general.css" >
     <link rel="shortcut icon" href="images/favicon.ico" />
     <link href='http://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
 <head>
@@ -36,7 +36,7 @@ if(isset($_POST['name']) AND isset($_POST['sujet'])){
     
             <div id="Cforum">
                 <?php  echo 'Bienvenue : '.$_SESSION['pseudo'].' :) - <a href="deconnexion.php">Deconnexion</a> '; ?>
-                
+                <div class="textcat">
                 <form method="post" action="addSujet.php?categorie=<?php echo $_GET['categorie']; ?>">
                     <p>
                         <br><input type="text" name="name" placeholder="Nom du sujet..." required/><br>
@@ -50,6 +50,7 @@ if(isset($_POST['name']) AND isset($_POST['sujet'])){
                         ?>
                     </p>
                 </form>
+                    </div>
             </div>
 </body>
 </html>
