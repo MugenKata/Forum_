@@ -1,9 +1,24 @@
-Drop database if exists forumn1;
-Create database forumn1;
-
-use forumn1;
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
 --
--- Base de données :  `forumn1`
+-- Hôte : 127.0.0.1
+-- Généré le : Dim 01 nov. 2020 à 18:13
+-- Version du serveur :  10.4.11-MariaDB
+-- Version de PHP : 7.4.5
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données : `forumn1`
 --
 
 -- --------------------------------------------------------
@@ -13,9 +28,8 @@ use forumn1;
 --
 
 CREATE TABLE `categories` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(20),
-  PRIMARY KEY (id)
+  `id` int(11) NOT NULL,
+  `name` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -36,19 +50,19 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 --
 
 CREATE TABLE `membres` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `pseudo` varchar(21),
-  `email` varchar(100),
-  `mdp` varchar(21),
-  PRIMARY KEY (id)
+  `id` int(11) NOT NULL,
+  `pseudo` varchar(21) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `mdp` varchar(21) DEFAULT NULL,
+  `confirme` int(2) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `membres`
 --
 
-INSERT INTO `membres` (`id`, `pseudo`, `email`, `mdp`) VALUES
-(1, 'nicolas', 'test@gmail.com', 'admin');
+INSERT INTO `membres` (`id`, `pseudo`, `email`, `mdp`, `confirme`) VALUES
+(1, 'nicolas', 'test@gmail.com', 'admin', 1);
 
 -- --------------------------------------------------------
 
@@ -57,20 +71,20 @@ INSERT INTO `membres` (`id`, `pseudo`, `email`, `mdp`) VALUES
 --
 
 CREATE TABLE `postsujet` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `propri` int(11),
-  `contenu` text,
-  `date` datetime,
-  `sujet` varchar(60),
-   PRIMARY KEY (id)
+  `id` int(11) NOT NULL,
+  `propri` int(11) DEFAULT NULL,
+  `contenu` text DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
+  `sujet` varchar(60) DEFAULT NULL,
+  `approuve` int(2) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `postsujet`
 --
 
-INSERT INTO `postsujet` (`id`, `propri`, `contenu`, `date`, `sujet`) VALUES
-(1, 1, 'bonjour', '2020-10-25 03:04:21', 'testons');
+INSERT INTO `postsujet` (`id`, `propri`, `contenu`, `date`, `sujet`, `approuve`) VALUES
+(1, 1, 'bonjour', '2020-10-25 03:04:21', 'testons', 1);
 
 -- --------------------------------------------------------
 
@@ -79,10 +93,9 @@ INSERT INTO `postsujet` (`id`, `propri`, `contenu`, `date`, `sujet`) VALUES
 --
 
 CREATE TABLE `sujet` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(60),
-  `categorie` varchar(20),
-  PRIMARY KEY (id)
+  `id` int(11) NOT NULL,
+  `name` varchar(60) DEFAULT NULL,
+  `categorie` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -90,6 +103,66 @@ CREATE TABLE `sujet` (
 --
 
 INSERT INTO `sujet` (`id`, `name`, `categorie`) VALUES
-(1, 'testons', 'jeux');
+(1, 'testons', 'jeux'),
+(2, 'bonsoir quel manga', 'Manga');
 
 --
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `membres`
+--
+ALTER TABLE `membres`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `postsujet`
+--
+ALTER TABLE `postsujet`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `sujet`
+--
+ALTER TABLE `sujet`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT pour la table `membres`
+--
+ALTER TABLE `membres`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pour la table `postsujet`
+--
+ALTER TABLE `postsujet`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pour la table `sujet`
+--
+ALTER TABLE `sujet`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
