@@ -1,0 +1,6 @@
+<FilesMatch "indexadmin.php">
+   AuthName "Ceci est du contenu securise"
+   AuthType Basic
+   AuthUserFile "C:\xampp\htdocs\forum\admin\.htpasswd"
+   Require valid-user
+</FilesMatch>

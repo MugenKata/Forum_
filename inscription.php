@@ -25,14 +25,17 @@ if(isset($_POST['pseudo']) AND isset($_POST['email']) AND isset($_POST['mdp'])  
 <!DOCTYPE html>
 <head>
     <meta charset='utf-8' />
-    <title>Mon super forum !</title>
+    <title>Forum four-tout</title>
+
     
-    <meta name="author" content="Thibault Neveu"> 
+    
     <link rel="stylesheet" type="text/css" href="css/general.css" />
     <link rel="shortcut icon" href="images/favicon.ico" />
     <link href='http://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
 <head>
 <body>
+    <center>
+    <h1>Bienvenue sur le Forum four-tout</h1>
  <h1>Inscription</h1>
     
             <div id="Cforum">
@@ -48,9 +51,11 @@ if(isset($_POST['pseudo']) AND isset($_POST['email']) AND isset($_POST['mdp'])  
                             echo $erreur;
                         }
                         ?>
+                        <p class="box-register">Vous êtes déja inscrit ? <a href="connexion.php">Se Connecter</a></p>
                     </p>
                 </form> 
                 
             </div>
+            </center>
 </body>
 </html>
